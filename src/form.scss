@@ -1,0 +1,74 @@
+
+.form-container {
+  // height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  align-items: center;
+  margin-top: 5%;
+
+  tr {
+    vertical-align: baseline;
+  }
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 0.25rem;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.25rem;
+
+  label {
+    display: flex;
+    flex-direction: row;
+
+    input {
+      width: fit-content;
+    }
+  }
+}
+
+.form-row-name {
+  display: flex;
+  gap: 15px;
+}
+
+.form-row-card {
+  display: flex;
+  gap: 15px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+input,
+textarea,
+select,
+button {
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.button-container {
+  width: 100%;
+}
+
+button:hover {
+  background-color: #45a049;
+}
