@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/creditcardform/static/css/main.dabd4be0.css",
-    "main.js": "/creditcardform/static/js/main.2d8ce929.js",
+    "main.js": "/creditcardform/static/js/main.d75c42f8.js",
     "static/js/787.5aec1a0f.chunk.js": "/creditcardform/static/js/787.5aec1a0f.chunk.js",
     "index.html": "/creditcardform/index.html",
     "main.dabd4be0.css.map": "/creditcardform/static/css/main.dabd4be0.css.map",
-    "main.2d8ce929.js.map": "/creditcardform/static/js/main.2d8ce929.js.map",
+    "main.d75c42f8.js.map": "/creditcardform/static/js/main.d75c42f8.js.map",
     "787.5aec1a0f.chunk.js.map": "/creditcardform/static/js/787.5aec1a0f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.dabd4be0.css",
-    "static/js/main.2d8ce929.js"
+    "static/js/main.d75c42f8.js"
   ]
 }
