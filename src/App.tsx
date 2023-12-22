@@ -14,9 +14,9 @@ function App() {
     <Router>
       <div>
         <Routes>
-          <Route path='/' Component={Submit}></Route>
-          <Route path='/getUID' Component={GetUID}></Route>
-          <Route path='/getUser/:uid' Component={getUser}></Route>
+          <Route path='/creditcardform' Component={Submit}></Route>
+          <Route path='/creditcardform/getUID' Component={GetUID}></Route>
+          <Route path='/creditcardform/getUser/:uid' Component={getUser}></Route>
         </Routes>
       </div>
     </Router>

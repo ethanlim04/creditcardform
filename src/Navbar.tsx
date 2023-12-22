@@ -7,10 +7,10 @@ const NavigationBar = (
     <nav className="navbar">
       <ul className="nav-list">
         <li className="nav-item">
-          <Link to="/">Submit a Form</Link>
+          <Link to="/creditcardform">Submit a Form</Link>
         </li>
         <li className="nav-item">
-          <Link to="/getUID">View Submitted Form</Link>
+          <Link to="/creditcardform/getUID">View Submitted Form</Link>
         </li>
       </ul>
     </nav>

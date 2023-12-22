@@ -10,7 +10,7 @@ const GetUID = () => {
     const handleSubmit = (e: ChangeEvent<HTMLFormElement>) => {
         e.preventDefault();
     //   console.log('Login submitted:', { uid });
-        navigate(`/getUser/${uid}`)
+        navigate(`/creditcardform/getUser/${uid}`)
     };
   
     return (
