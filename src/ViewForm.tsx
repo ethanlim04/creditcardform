@@ -1,6 +1,6 @@
 import React, { useState, ChangeEvent, FormEvent, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import NavigationBar from './Navbar';
 
 const states = [
@@ -93,6 +93,8 @@ interface FormData {
 }
 
 const ViewForm: React.FC = () => {
+  const navigate = useNavigate();
+
   const { uid } = useParams();
 
   // Allow users to input same card name as user name
@@ -132,9 +134,16 @@ const ViewForm: React.FC = () => {
       }).then((response) => response.json())
       .then(res => {
         console.log("Success! Got user! : ", res)
+        if(res.error) {
+          alert("Your phone number has not been registered")
+          navigate(`/creditcardform`)
+        }
+
         setFormData(res)
       }).catch(error => {
         console.log("Error: ", error)
+        // alert("Your phone number has not been registered")
+        // navigate(`/creditcardform`)
       })
   }, [])
 
@@ -170,10 +179,13 @@ const ViewForm: React.FC = () => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(formData),
-    }).then(res => {
+    }).then((response) => response.json())
+    .then(res => {
       console.log("Success: ", res)
     }).catch(error => {
       console.log("Error: ", error)
+      // alert("Your phone number has not been registered")
+      // navigate(`/creditcardform`)
     })
   };
 

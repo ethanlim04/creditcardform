@@ -1,5 +1,5 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import NavigationBar from './Navbar';
 
 
@@ -95,6 +95,7 @@ interface FormData {
 
 
 const SubmissionForm: React.FC = () => {
+  const navigate = useNavigate();
 
   // Allow users to input same card name as user name
   const [cardNameSame, setCardNameSame] = useState<boolean>(false)
@@ -159,7 +160,8 @@ const SubmissionForm: React.FC = () => {
       },
       body: JSON.stringify(formData),
     }).then(res => {
-      console.log("Success: ", res)
+      console.log("Success: ", res)  
+      navigate(`/creditcardform/getUser/${formData.phone}`)
     }).catch(error => {
       console.log("Error: ", error)
     })
