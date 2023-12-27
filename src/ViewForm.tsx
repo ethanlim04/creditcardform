@@ -189,6 +189,63 @@ const ViewForm: React.FC = () => {
     })
   };
 
+
+  const downloadFile = async (e: any) => {
+    try {
+      const response = await fetch('http://localhost:8080/api/download', {
+          method: 'POST',
+          body: uid,
+        });
+  
+      if (!response.ok) {
+        throw new Error(`Failed to fetch the file (status ${response.status}).`);
+      }
+  
+      console.log("Success! Got user! : ", response)
+  
+  
+      const readableStream = response.body;
+  
+      // Accumulate chunks in an array
+      const chunks = [];
+      const reader = readableStream?.getReader();
+      
+      if(!reader) {return;}
+
+      while (true) {
+        const { done, value } = await reader.read();
+  
+        if (done) {
+          break;
+        }
+  
+        chunks.push(value);
+      }
+  
+      // Combine chunks into a single Uint8Array
+      // const combinedUint8Array = Uint8Array.from(chunks.reduce((acc, chunk) => [...acc, ...chunk], []));
+      const combinedUint8Array = chunks.reduce((acc, chunk) => new Uint8Array([...acc, ...chunk]), new Uint8Array());
+
+      // Convert Uint8Array to Blob
+      const blob = new Blob([combinedUint8Array], { type: 'application/pdf' });
+  
+      // Create a download link
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'g-1450.pdf';
+  
+      // Append the link to the body and trigger a click to start the download
+      document.body.appendChild(link);
+      link.click();
+  
+      // Remove the link from the body
+      document.body.removeChild(link);
+  
+    } catch (error: any) {
+      console.error('Error:', error.message);
+    }
+  }
+
   const card_name =
     <tr>
       <td>
@@ -486,6 +543,7 @@ const ViewForm: React.FC = () => {
 
       <div className="button-container"><button type="submit">Save Changes</button></div> 
       </form>
+      <button onClick={downloadFile}>Download File</button>
     </div>
   )
 
